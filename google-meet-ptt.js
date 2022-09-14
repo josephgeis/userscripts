@@ -5,7 +5,7 @@
 // @homepageURL https://josephgeis.dev/
 // @description Makes Space into a Push-to-Talk button, makes Shift a PTT for the camera, and makes Enter a shortcut to the chat window.
 // @license     MIT
-// @version     1.0.1
+// @version     1.0.2
 // @grant       none
 // @include     https://meet.google.com/*
 // ==/UserScript==
@@ -29,7 +29,7 @@ if (window.chatKey == null) {
 }
 
 function chatHasFocus() {
-  return document.querySelector("[name=chatTextInput]") === document.activeElement;
+  return document.querySelector("[id=bfTqV]") === document.activeElement;
 }
 
 
@@ -56,7 +56,7 @@ function cameraMute(e) {
 function chatWindow(e) {
   if (e.key != window.chatKey || chatHasFocus()) return;
   
-  const chatMenuButton = document.querySelector("[aria-label*='Chat'][role=button]");
+  const chatMenuButton = document.querySelector("button[aria-label*='Chat']");
   chatMenuButton.click();
 }
 
